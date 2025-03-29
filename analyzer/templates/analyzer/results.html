@@ -1,0 +1,246 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="results-container">
+    <div class="analysis-section">
+        <!-- Metrics Section -->
+        <div class="metrics-container">
+            <div class="metric-item">
+                <div class="metric-circle" id="relevanceScore" data-score="{{ relevance_score }}">
+                    <span class="score">{{ relevance_score }}</span>
+                    <span class="score-denominator">/10</span>
+                    <span class="metric-label">Relevance Score</span>
+                </div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-circle" id="atsScore" data-score="{{ ats_score }}">
+                    <span class="score">{{ ats_score }}</span>
+                    <span class="score-denominator">/10</span>
+                    <span class="metric-label">ATS Compatibility</span>
+                </div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-circle" id="readabilityScore" data-score="{{ readability_score }}">
+                    <span class="score">{{ readability_score }}</span>
+                    <span class="score-denominator">/10</span>
+                    <span class="metric-label">Readability</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Suggestions Section -->
+        <div class="suggestions-container">
+            <h2 class="analysis-title">Detailed Analysis</h2>
+            <div class="suggestions-content markdown-content">
+                {{ analysis_text|safe }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css">
+<style>
+.results-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.analysis-section {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+/* Metrics Styling */
+.metrics-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.metric-item {
+    text-align: center;
+    flex: 0 1 auto;
+}
+
+.metric-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+/* Color coding based on score ranges */
+.metric-circle[data-score="8"],
+.metric-circle[data-score="9"],
+.metric-circle[data-score="10"] {
+    background: #48bb78; /* Green for good scores (8-10) */
+}
+
+.metric-circle[data-score="6"],
+.metric-circle[data-score="7"] {
+    background: #ecc94b; /* Yellow for medium scores (6-7) */
+}
+
+.metric-circle[data-score="0"],
+.metric-circle[data-score="1"],
+.metric-circle[data-score="2"],
+.metric-circle[data-score="3"],
+.metric-circle[data-score="4"],
+.metric-circle[data-score="5"] {
+    background: #e53e3e; /* Red for poor scores (0-5) */
+}
+
+.metric-circle:hover {
+    transform: scale(1.05);
+}
+
+.metric-circle .score {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1;
+    color: white;
+}
+
+.score-denominator {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-top: -5px;
+    color: white;
+}
+
+.metric-label {
+    font-size: 1rem;
+    color: #2d3748;
+    font-weight: 500;
+    margin-top: 0.75rem;
+}
+
+/* Markdown Content Styling */
+.markdown-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #24292e;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #24292e;
+}
+
+.markdown-content h1 { font-size: 2em; }
+.markdown-content h2 { font-size: 1.5em; }
+.markdown-content h3 { font-size: 1.25em; }
+
+.markdown-content p {
+    margin-bottom: 16px;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+    padding-left: 2em;
+    margin-bottom: 16px;
+}
+
+.markdown-content li {
+    margin-bottom: 0.5em;
+}
+
+.markdown-content code {
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(27,31,35,0.05);
+    border-radius: 3px;
+    font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
+}
+
+.markdown-content pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+}
+
+.markdown-content blockquote {
+    padding: 0 1em;
+    color: #6a737d;
+    border-left: 0.25em solid #dfe2e5;
+    margin: 0 0 16px 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .metrics-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .metric-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .metric-circle .score {
+        font-size: 3rem;
+    }
+
+    .score-denominator {
+        font-size: 1.5rem;
+    }
+
+    .metric-label {
+        font-size: 1.1rem;
+    }
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    // Function to update metrics with animation
+    function animateMetric(element) {
+        const score = parseFloat($(element).data('score'));
+        $({ value: 0 }).animate({ value: score }, {
+            duration: 1000,
+            step: function() {
+                $(element).find('.score').text(this.value.toFixed(0));
+            }
+        });
+    }
+
+    // Animate metrics on page load
+    setTimeout(function() {
+        $('.metric-circle').each(function() {
+            animateMetric(this);
+        });
+    }, 500);
+});
+</script>
+{% endblock %} 

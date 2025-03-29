@@ -1,0 +1,492 @@
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <!-- Add CSRF token -->
+    {% csrf_token %}
+
+    <style>
+    html, body {
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    body.bg-gradient {
+        background: #b8c6db !important;
+        background: -webkit-linear-gradient(135deg, #b8c6db 0%, #f5e6e8 100%) !important;
+        background: -moz-linear-gradient(135deg, #b8c6db 0%, #f5e6e8 100%) !important;
+        background: linear-gradient(135deg, #b8c6db 0%, #f5e6e8 100%) !important;
+        background-attachment: fixed !important;
+    }
+    </style>
+
+    <script>
+    document.body.classList.add('bg-gradient');
+    </script>
+
+    <div class="landing-container">
+        <nav class="landing-nav">
+            <div class="nav-brand">RESUME CHECKER</div>
+        </nav>
+
+        <div class="hero-section">
+            <h1 class="main-title">Is your resume good enough?</h1>
+            <p class="subtitle">A free and fast AI resume checker to ensure your resume gets you interview callbacks.</p>
+            
+            <div class="upload-section">
+                <div class="upload-container">
+                    <div class="upload-box" id="resumeDropZone">
+                        <div class="upload-content">
+                            <i class="fas fa-file-pdf upload-icon"></i>
+                            <p class="upload-text">Upload Resume</p>
+                            <label for="resumeUpload" class="upload-button">Choose File</label>
+                            <input type="file" id="resumeUpload" name="resume" accept=".pdf,.docx" class="hidden-input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="upload-container">
+                    <div class="upload-box" id="jdDropZone">
+                        <div class="upload-content">
+                            <i class="fas fa-briefcase upload-icon"></i>
+                            <p class="upload-text">Upload Job Description</p>
+                            <label for="jdUpload" class="upload-button">Choose File</label>
+                            <input type="file" id="jdUpload" name="job_description" accept=".pdf,.docx" class="hidden-input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <button id="analyzeBtn" class="analyze-button" disabled>
+                Analyze Resume
+            </button>
+
+        
+        </div>
+    </div>
+    {% endblock %}
+
+    {% block extra_css %}
+    <style>
+    html {
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #b8c6db !important;
+        background: -webkit-linear-gradient(135deg, #b8c6db 0%, #f5e6e8 100%) !important;
+        background: -moz-linear-gradient(135deg, #b8c6db 0%, #f5e6e8 100%) !important;
+        background: linear-gradient(135deg, #b8c6db 0%, #f5e6e8 100%) !important;
+    }
+
+    body {
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+    }
+
+    .landing-container {
+        min-height: 100vh;
+        width: 100%;
+        position: relative;
+        background: transparent !important;
+    }
+
+    .landing-nav {
+        padding: 1.5rem 2rem;
+    }
+
+    .nav-brand {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #2d3748;
+        letter-spacing: 1px;
+    }
+
+    .hero-section {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .main-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: #2d3748;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+    .subtitle {
+        font-size: 1.25rem;
+        color: #4a5568;
+        margin-bottom: 5rem;
+        line-height: 1.6;
+    }
+
+    .section-divider {
+        height: 1px;
+        background: rgba(108, 99, 255, 0.1);
+        margin: 4rem auto;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .upload-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4rem;
+        margin-bottom: 4rem;
+    }
+
+    .upload-container {
+        width: 100%;
+        max-width: 500px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .upload-box {
+        background: rgba(255, 255, 255, 0.7);
+        border: 2px dashed #6c63ff;
+        border-radius: 16px;
+        padding: 3rem 2rem 4rem 2rem;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        backdrop-filter: blur(10px);
+    }
+
+    .upload-box:hover {
+        transform: translateY(-2px);
+        border-color: #5a51ff;
+        box-shadow: 0 12px 40px rgba(108,99,255,0.1);
+    }
+
+    .upload-content {
+        text-align: center;
+    }
+
+    .upload-icon {
+        font-size: 3rem;
+        color: #6c63ff;
+        margin-bottom: 1.5rem;
+        filter: drop-shadow(0 2px 4px rgba(108,99,255,0.2));
+    }
+
+    .upload-text {
+        font-size: 1.75rem;
+        color: #2d3748;
+        margin-bottom: 2rem;
+        font-weight: 600;
+    }
+
+    .upload-button {
+        display: inline-block;
+        background: #6c63ff;
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 12px;
+        font-weight: 500;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(108,99,255,0.2);
+        margin-bottom: 1rem;
+    }
+
+    .upload-button:hover {
+        background: #5a51ff;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(108,99,255,0.25);
+    }
+
+    .analyze-button {
+        background: #6c63ff;
+        color: white;
+        padding: 1.25rem 3rem;
+        border-radius: 12px;
+        font-size: 1.75rem;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        max-width: 500px;
+        box-shadow: 0 8px 20px rgba(108,99,255,0.15);
+        margin-top: 2rem;
+    }
+
+    .analyze-button:hover:not(:disabled) {
+        background: #5a51ff;
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(108,99,255,0.2);
+    }
+
+    .analyze-button:disabled {
+        background: #a0aec0;
+        cursor: not-allowed;
+        transform: none;
+        opacity: 0.8;
+        box-shadow: none;
+    }
+
+    .hidden-input {
+        display: none;
+    }
+
+    .privacy-note {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        color: #718096;
+        font-size: 0.9rem;
+        margin-top: 2rem;
+    }
+
+    .privacy-note i {
+        font-size: 0.9rem;
+    }
+
+    .file-selected {
+        border-color: #48bb78;
+    }
+
+    /* Drag and drop states */
+    .upload-box.drag-over {
+        background: rgba(255, 255, 255, 0.95);
+        border-color: #5a51ff;
+        transform: scale(1.02);
+    }
+
+    @media (max-width: 768px) {
+        .main-title {
+            font-size: 2.8rem;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+        }
+        
+        .upload-container {
+            padding: 1.5rem;
+        }
+        
+        .upload-box {
+            padding: 2rem 1.5rem;
+        }
+        
+        .upload-text {
+            font-size: 1.5rem;
+        }
+        
+        .analyze-button {
+            font-size: 1.5rem;
+            padding: 1rem 2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .main-title {
+            font-size: 2.5rem;
+        }
+        
+        .hero-section {
+            margin: 2rem auto;
+        }
+    }
+    </style>
+    {% endblock %}
+
+    {% block extra_js %}
+    <script>
+    $(document).ready(function() {
+        // Get CSRF token
+        const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+        // Setup CSRF token for all AJAX requests
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+
+        const resumeDropZone = $('#resumeDropZone');
+        const jdDropZone = $('#jdDropZone');
+        const resumeInput = $('#resumeUpload');
+        const jdInput = $('#jdUpload');
+        const analyzeBtn = $('#analyzeBtn');
+        
+        let resumeFile = null;
+        let jdFile = null;
+
+        function updateAnalyzeButton() {
+            if (resumeFile && jdFile) {
+                analyzeBtn.prop('disabled', false);
+            } else {
+                analyzeBtn.prop('disabled', true);
+            }
+        }
+
+        function handleDragOver(e, element) {
+            e.preventDefault();
+            e.stopPropagation();
+            element.addClass('drag-over');
+        }
+
+        function handleDragLeave(e, element) {
+            e.preventDefault();
+            e.stopPropagation();
+            element.removeClass('drag-over');
+        }
+
+        function handleDrop(e, element, input) {
+            e.preventDefault();
+            e.stopPropagation();
+            element.removeClass('drag-over');
+            const files = e.originalEvent.dataTransfer.files;
+            handleFiles(files[0], element, input);
+        }
+
+        // Resume drag and drop
+        resumeDropZone.on('dragover dragenter', (e) => handleDragOver(e, resumeDropZone));
+        resumeDropZone.on('dragleave dragend', (e) => handleDragLeave(e, resumeDropZone));
+        resumeDropZone.on('drop', (e) => handleDrop(e, resumeDropZone, resumeInput));
+
+        // JD drag and drop
+        jdDropZone.on('dragover dragenter', (e) => handleDragOver(e, jdDropZone));
+        jdDropZone.on('dragleave dragend', (e) => handleDragLeave(e, jdDropZone));
+        jdDropZone.on('drop', (e) => handleDrop(e, jdDropZone, jdInput));
+
+        // Click to upload
+        resumeDropZone.on('click', () => resumeInput.click());
+        jdDropZone.on('click', () => jdInput.click());
+
+        // File input change handlers
+        resumeInput.on('change', function() {
+            if (this.files.length > 0) {
+                handleFiles(this.files[0], resumeDropZone, resumeInput);
+            }
+        });
+
+        jdInput.on('change', function() {
+            if (this.files.length > 0) {
+                handleFiles(this.files[0], jdDropZone, jdInput);
+            }
+        });
+
+        function handleFiles(file, dropZone, input) {
+            if (validateFile(file)) {
+                const isResume = input.attr('id') === 'resumeUpload';
+                if (isResume) {
+                    resumeFile = file;
+                } else {
+                    jdFile = file;
+                }
+                
+                updateFileUI(dropZone, file.name);
+                updateAnalyzeButton();
+            }
+        }
+
+        function validateFile(file) {
+            const validTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+            const maxSize = 2 * 1024 * 1024; // 2MB
+
+            if (!validTypes.includes(file.type)) {
+                alert('Please upload a PDF or DOCX file only.');
+                return false;
+            }
+
+            if (file.size > maxSize) {
+                alert('File size must be less than 2MB.');
+                return false;
+            }
+
+            return true;
+        }
+
+        function updateFileUI(dropZone, fileName) {
+            dropZone.addClass('file-selected');
+            const content = dropZone.find('.upload-content');
+            content.html(`
+                <i class="fas fa-check-circle upload-icon" style="color: #48bb78;"></i>
+                <p class="upload-text">File Selected</p>
+                <p class="upload-subtext">${fileName}</p>
+                <label class="upload-button">Change File</label>
+            `);
+        }
+
+        analyzeBtn.on('click', function() {
+            if (!resumeFile || !jdFile) return;
+
+            const formData = new FormData();
+            formData.append('resume', resumeFile);
+            formData.append('job_description', jdFile);
+            formData.append('csrfmiddlewaretoken', csrftoken);  // Add CSRF token to form data
+
+            // Show loading state
+            analyzeBtn.prop('disabled', true);
+            analyzeBtn.html(`
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Analyzing...
+            `);
+
+            // Send the files to the server
+            $.ajax({
+                url: '/api/analyze/',  // Updated to use the new endpoint path
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                headers: {
+                    'X-CSRFToken': csrftoken
+                },
+                success: function(response) {
+                    console.log('Server response:', response);
+                    if (response.status === 'success') {
+                        window.location.href = '/results/';
+                    } else {
+                        console.error('Server error:', response.error);
+                        alert('Error analyzing resume: ' + (response.error || 'Unknown error'));
+                        resetAnalyzeButton();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('AJAX error:', {xhr, status, error});
+                    let errorMessage = 'Error analyzing resume';
+                    try {
+                        const response = JSON.parse(xhr.responseText);
+                        if (response && response.error) {
+                            errorMessage = response.error;
+                        }
+                    } catch (e) {
+                        errorMessage += ': ' + error;
+                    }
+                    alert(errorMessage);
+                    resetAnalyzeButton();
+                }
+            });
+        });
+
+        function resetAnalyzeButton() {
+            analyzeBtn.prop('disabled', false);
+            analyzeBtn.html('Analyze Resume');
+        }
+    });
+    </script>
+    {% endblock %} 

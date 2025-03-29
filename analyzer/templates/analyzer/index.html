@@ -1,0 +1,381 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% csrf_token %}
+<!-- Top Section - Upload Files Side by Side -->
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Resume (PDF)</h5>
+            </div>
+            <div class="card-body">
+                <input type="file" class="form-control" id="resume" name="resume" accept=".pdf" required>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Job Description (PDF)</h5>
+            </div>
+            <div class="card-body">
+                <input type="file" class="form-control" id="job_description" name="job_description" accept=".pdf" required>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Analyze Button -->
+<div class="row mb-4">
+    <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary btn-lg" id="analyzeBtn">Analyze</button>
+    </div>
+</div>
+
+<!-- Bottom Section - Split View -->
+<div class="row">
+    <!-- Left Half - Resume Preview (70%) -->
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Resume Preview</h5>
+            </div>
+            <div class="card-body p-0">
+                <div id="resumePreview" class="resume-preview">
+                    <div class="text-center text-muted">
+                        <i class="fas fa-file-pdf fa-3x mb-3"></i>
+                        <p>Upload a resume to preview</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Half - Analysis Results (30%) -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Analysis Results</h5>
+            </div>
+            <div class="card-body">
+                <div id="results" style="display: none;">
+                    <div class="text-center mb-4">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="metric-circle">
+                                    <span id="relevanceScore">0/10</span>
+                                </div>
+                                <div class="metric-label">Relevance Score</div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="metric-circle">
+                                    <span id="atsScore">0/10</span>
+                                </div>
+                                <div class="metric-label">ATS Compatibility</div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="metric-circle">
+                                    <span id="readabilityScore">0/10</span>
+                                </div>
+                                <div class="metric-label">Readability & Clarity</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="analysis-content mt-4">
+                        <div id="analysisContent" class="markdown-content"></div>
+                    </div>
+                </div>
+                <div id="loading" style="display: none;">
+                    <div class="text-center">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2">Analyzing your resume...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add markdown-it library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js"></script>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    // Initialize markdown-it
+    const md = window.markdownit({
+        html: true,
+        linkify: true,
+        typographer: true
+    });
+
+    // Preview resume when selected
+    $('#resume').on('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const pdfData = new Uint8Array(e.target.result);
+                pdfjsLib.getDocument({data: pdfData}).promise.then(function(pdf) {
+                    const resumePreview = $('#resumePreview');
+                    resumePreview.empty();
+                    
+                    // Render all pages
+                    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                        pdf.getPage(pageNum).then(function(page) {
+                            const canvas = document.createElement('canvas');
+                            const context = canvas.getContext('2d');
+                            resumePreview.append(canvas);
+                            
+                            // Calculate scale to fit width
+                            const containerWidth = resumePreview.width();
+                            const viewport = page.getViewport({scale: 1.0});
+                            const scale = containerWidth / viewport.width;
+                            
+                            // Set canvas dimensions
+                            canvas.width = containerWidth;
+                            canvas.height = viewport.height * scale;
+                            
+                            // Render page
+                            page.render({
+                                canvasContext: context,
+                                viewport: page.getViewport({scale: scale})
+                            });
+                        });
+                    }
+                });
+            };
+            reader.readAsArrayBuffer(file);
+        }
+    });
+
+    $('#analyzeBtn').on('click', function(e) {
+        e.preventDefault();
+        
+        // Get the files
+        const resumeFile = $('#resume')[0].files[0];
+        const jdFile = $('#job_description')[0].files[0];
+        
+        // Validate files
+        if (!resumeFile || !jdFile) {
+            alert('Please select both a resume and job description file.');
+            return;
+        }
+        
+        // Validate file types
+        if (!resumeFile.type.includes('pdf') || !jdFile.type.includes('pdf')) {
+            alert('Please upload PDF files only.');
+            return;
+        }
+        
+        // Create form data
+        const formData = new FormData();
+        formData.append('resume', resumeFile);
+        formData.append('job_description', jdFile);
+        
+        // Add CSRF token
+        const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        
+        $('#loading').show();
+        $('#results').hide();
+
+        $.ajax({
+            url: '/analysis/analyze/',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            headers: {
+                'X-CSRFToken': csrftoken
+            },
+            success: function(response) {
+                $('#loading').hide();
+                $('#results').show();
+                
+                console.log('Received response:', response);  // Debug log
+                
+                // Update scores
+                const relevanceScore = response.relevance_score;
+                const atsScore = response.ats_score;
+                const readabilityScore = response.readability_score;
+                
+                console.log('Scores:', {relevanceScore, atsScore, readabilityScore});  // Debug log
+                
+                $('#relevanceScore').text(relevanceScore + '/10');
+                $('#atsScore').text(atsScore + '/10');
+                $('#readabilityScore').text(readabilityScore + '/10');
+
+                // Render markdown content
+                const analysisContent = $('#analysisContent');
+                analysisContent.html(md.render(response.analysis));
+            },
+            error: function(xhr, status, error) {
+                $('#loading').hide();
+                console.error('Error:', {xhr, status, error});  // Debug log
+                
+                let errorMessage = 'Error analyzing resume: ';
+                if (xhr.responseJSON && xhr.responseJSON.error) {
+                    errorMessage += xhr.responseJSON.error;
+                } else if (xhr.status === 404) {
+                    errorMessage += 'API endpoint not found. Please try again.';
+                } else if (xhr.status === 400) {
+                    errorMessage += 'Invalid request. Please check your files and try again.';
+                } else {
+                    errorMessage += error;
+                }
+                
+                alert(errorMessage);
+            }
+        });
+    });
+});
+</script>
+
+<style>
+/* Override container width */
+.container {
+    max-width: 95%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.resume-preview {
+    max-height: 800px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    width: 100%;
+}
+
+.resume-preview canvas {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+    display: block;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.resume-preview canvas:last-child {
+    margin-bottom: 0;
+}
+
+.markdown-content {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-height: 800px;
+    overflow-y: auto;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.markdown-content p {
+    margin-bottom: 1em;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+    margin-bottom: 1em;
+    padding-left: 2em;
+}
+
+.markdown-content li {
+    margin-bottom: 0.5em;
+}
+
+.markdown-content code {
+    background-color: #f6f8fa;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-content pre {
+    background-color: #f6f8fa;
+    padding: 1em;
+    border-radius: 3px;
+    overflow-x: auto;
+}
+
+.markdown-content blockquote {
+    margin: 0;
+    padding-left: 1em;
+    border-left: 4px solid #dfe2e5;
+    color: #6a737d;
+}
+
+.markdown-content table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.markdown-content th,
+.markdown-content td {
+    border: 1px solid #dfe2e5;
+    padding: 0.5em;
+}
+
+.markdown-content th {
+    background-color: #f6f8fa;
+    font-weight: 600;
+}
+
+.rating-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 auto;
+    color: white;
+}
+
+.rating-good {
+    background-color: #28a745;
+}
+
+.rating-bad {
+    background-color: #dc3545;
+}
+
+.metric-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #28a745;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin: 0 auto 10px;
+}
+
+.metric-label {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 15px;
+}
+</style>
+{% endblock %} 

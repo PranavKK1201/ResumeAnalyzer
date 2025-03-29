@@ -1,0 +1,544 @@
+[2025-03-28 19:05:16] Starting file processing
+[2025-03-28 19:05:16] Resume file received
+[2025-03-28 19:05:16] Job description file received
+[2025-03-28 19:05:16] Files saved successfully
+[2025-03-28 19:05:16] Starting PDF text extraction for file: Pranav_Resume.pdf
+[2025-03-28 19:05:16] PDF has 1 pages
+[2025-03-28 19:05:16] Extracting text from page 1/1
+[2025-03-28 19:05:16] Starting PDF text extraction for file: Software Engineer Intern (1).pdf
+[2025-03-28 19:05:16] PDF has 2 pages
+[2025-03-28 19:05:16] Extracting text from page 1/2
+[2025-03-28 19:05:16] Extracting text from page 2/2
+[2025-03-28 19:05:16] Text extracted from files
+[2025-03-28 19:05:16] Starting Gemini API call...
+[2025-03-28 19:05:16] Starting Gemini API call...
+[2025-03-28 19:05:16] Sending request to Gemini API...
+[2025-03-28 19:05:21] Successfully received response from Gemini API
+[2025-03-28 19:05:21] Full Gemini response: {
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Relevance Score: 7/10\nATS Compatibility: 6/10\nReadability & Clarity: 8/10\n\n## Overall Assessment\nThe resume demonstrates strong technical skills relevant to the software engineering intern position, particularly in AI/ML and backend development.  However, it lacks specific experience directly related to the company's focus on automating core business functions. \n\n## Strengths\n* **Technical Skills:**  Demonstrates a solid foundation in programming languages (Python, Java, C/C++), developer tools (Git, Google Colab, Linux, WSL, VS Code, MySQL), and AI/ML libraries (NumPy, Pandas, Matplotlib, PyTorch, OpenCV, Librosa, Scikit-learn). \n* **Project Experience:**  Multiple projects showcase the candidate's ability to apply technical skills to real-world problems, demonstrating their knowledge of AI/ML concepts, data analysis, and software development. \n* **Clear and Concise Formatting:**  The resume is well-organized and easy to read, highlighting key information about the candidate's skills and experience.\n\n## Areas for Improvement\n* **Relevance to Job Description:**  While the resume demonstrates strong technical skills, it lacks specific examples that directly align with Super A GI's focus on automating core business functions like sales, marketing, support, and software development. \n* **ATS Optimization:**  The resume could benefit from optimizing keywords related to Super A GI's industry and role requirements to enhance ATS compatibility. \n* **Quantifiable Results:**  Quantifying the impact of projects and experiences would further strengthen the resume. For instance, instead of \"improved model performance,\"  mention \"improved model accuracy by X%.\"\n\n## Detailed Analysis\n* **Experience:** The resume effectively highlights the candidate's internship experience at Intel Corporation and Impactsure Technologies. However, it lacks specific examples illustrating experience with automating core business functions, which is central to Super A GI's mission.\n* **Projects:**  The candidate's project experience showcases their skills in various domains, including music recommendation systems, lecture transcription, and deep learning. However, emphasizing projects that align with Super A GI's focus on automating core business functions would be beneficial.\n* **Skills:** The resume clearly lists a wide range of technical skills, but it could be further enhanced by highlighting specific skills that are directly relevant to the job description, such as experience with cloud platforms, API development, or backend frameworks.\n\n## Action Items\n1. **Tailor Resume to Super A GI:**  Rework the resume to emphasize projects and experiences that align with Super A GI's focus on automating core business functions. \n2. **Optimize for ATS:**  Incorporate keywords related to Super A GI's industry (AI, automation, core business functions) and the job role (software engineering) to increase ATS compatibility.\n3. **Quantify Results:**  Use data and metrics to quantify the impact of the candidate's projects and experiences. This will help demonstrate the candidate's value and contribution. \n4. **Highlight Specific Skills:**  Focus on highlighting specific technical skills that are directly relevant to the job description, particularly those related to backend development and automation. \n"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "safetyRatings": [
+        {
+          "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HATE_SPEECH",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HARASSMENT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+          "probability": "NEGLIGIBLE"
+        }
+      ]
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1756,
+    "candidatesTokenCount": 663,
+    "totalTokenCount": 2419,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1756
+      }
+    ]
+  },
+  "modelVersion": "gemini-1.5-flash-001"
+}
+[2025-03-28 19:05:21] Received response from Gemini API
+[2025-03-28 19:05:21] Full response text:
+[2025-03-28 19:05:21] Relevance Score: 7/10
+ATS Compatibility: 6/10
+Readability & Clarity: 8/10
+
+## Overall Assessment
+The resume demonstrates strong technical skills relevant to the software engineering intern position, particularly in AI/ML and backend development.  However, it lacks specific experience directly related to the company's focus on automating core business functions. 
+
+## Strengths
+* **Technical Skills:**  Demonstrates a solid foundation in programming languages (Python, Java, C/C++), developer tools (Git, Google Colab, Linux, WSL, VS Code, MySQL), and AI/ML libraries (NumPy, Pandas, Matplotlib, PyTorch, OpenCV, Librosa, Scikit-learn). 
+* **Project Experience:**  Multiple projects showcase the candidate's ability to apply technical skills to real-world problems, demonstrating their knowledge of AI/ML concepts, data analysis, and software development. 
+* **Clear and Concise Formatting:**  The resume is well-organized and easy to read, highlighting key information about the candidate's skills and experience.
+
+## Areas for Improvement
+* **Relevance to Job Description:**  While the resume demonstrates strong technical skills, it lacks specific examples that directly align with Super A GI's focus on automating core business functions like sales, marketing, support, and software development. 
+* **ATS Optimization:**  The resume could benefit from optimizing keywords related to Super A GI's industry and role requirements to enhance ATS compatibility. 
+* **Quantifiable Results:**  Quantifying the impact of projects and experiences would further strengthen the resume. For instance, instead of "improved model performance,"  mention "improved model accuracy by X%."
+
+## Detailed Analysis
+* **Experience:** The resume effectively highlights the candidate's internship experience at Intel Corporation and Impactsure Technologies. However, it lacks specific examples illustrating experience with automating core business functions, which is central to Super A GI's mission.
+* **Projects:**  The candidate's project experience showcases their skills in various domains, including music recommendation systems, lecture transcription, and deep learning. However, emphasizing projects that align with Super A GI's focus on automating core business functions would be beneficial.
+* **Skills:** The resume clearly lists a wide range of technical skills, but it could be further enhanced by highlighting specific skills that are directly relevant to the job description, such as experience with cloud platforms, API development, or backend frameworks.
+
+## Action Items
+1. **Tailor Resume to Super A GI:**  Rework the resume to emphasize projects and experiences that align with Super A GI's focus on automating core business functions. 
+2. **Optimize for ATS:**  Incorporate keywords related to Super A GI's industry (AI, automation, core business functions) and the job role (software engineering) to increase ATS compatibility.
+3. **Quantify Results:**  Use data and metrics to quantify the impact of the candidate's projects and experiences. This will help demonstrate the candidate's value and contribution. 
+4. **Highlight Specific Skills:**  Focus on highlighting specific technical skills that are directly relevant to the job description, particularly those related to backend development and automation. 
+
+[2025-03-28 19:05:21] Found score line: Relevance Score: 7/10
+[2025-03-28 19:05:21] Found score line: ATS Compatibility: 6/10
+[2025-03-28 19:05:21] Found score line: Readability & Clarity: 8/10
+[2025-03-28 19:05:21] Found score line: * **Relevance to Job Description:**  While the resume demonstrates strong technical skills, it lacks specific examples that directly align with Super A GI's focus on automating core business functions like sales, marketing, support, and software development. 
+[2025-03-28 19:05:21] Found score line: * **ATS Optimization:**  The resume could benefit from optimizing keywords related to Super A GI's industry and role requirements to enhance ATS compatibility. 
+[2025-03-28 19:05:21] Found score line: 2. **Optimize for ATS:**  Incorporate keywords related to Super A GI's industry (AI, automation, core business functions) and the job role (software engineering) to increase ATS compatibility.
+[2025-03-28 19:05:21] Score matches found:
+[2025-03-28 19:05:21] Relevance: 7
+[2025-03-28 19:05:21] ATS: 6
+[2025-03-28 19:05:21] Readability: 8
+[2025-03-28 19:05:21] Extracted scores: Relevance=7, ATS=6, Readability=8
+[2025-03-28 19:05:21] Error parsing Gemini response: ResumeAnalysis() got unexpected keyword arguments: 'resume_file', 'job_description_file', 'analysis', 'relevance_score', 'ats_score', 'readability_score'
+[2025-03-28 19:05:21] Response text: Relevance Score: 7/10
+ATS Compatibility: 6/10
+Readability & Clarity: 8/10
+
+## Overall Assessment
+The resume demonstrates strong technical skills relevant to the software engineering intern position, particularly in AI/ML and backend development.  However, it lacks specific experience directly related to the company's focus on automating core business functions. 
+
+## Strengths
+* **Technical Skills:**  Demonstrates a solid foundation in programming languages (Python, Java, C/C++), developer tools (Git, Google Colab, Linux, WSL, VS Code, MySQL), and AI/ML libraries (NumPy, Pandas, Matplotlib, PyTorch, OpenCV, Librosa, Scikit-learn). 
+* **Project Experience:**  Multiple projects showcase the candidate's ability to apply technical skills to real-world problems, demonstrating their knowledge of AI/ML concepts, data analysis, and software development. 
+* **Clear and Concise Formatting:**  The resume is well-organized and easy to read, highlighting key information about the candidate's skills and experience.
+
+## Areas for Improvement
+* **Relevance to Job Description:**  While the resume demonstrates strong technical skills, it lacks specific examples that directly align with Super A GI's focus on automating core business functions like sales, marketing, support, and software development. 
+* **ATS Optimization:**  The resume could benefit from optimizing keywords related to Super A GI's industry and role requirements to enhance ATS compatibility. 
+* **Quantifiable Results:**  Quantifying the impact of projects and experiences would further strengthen the resume. For instance, instead of "improved model performance,"  mention "improved model accuracy by X%."
+
+## Detailed Analysis
+* **Experience:** The resume effectively highlights the candidate's internship experience at Intel Corporation and Impactsure Technologies. However, it lacks specific examples illustrating experience with automating core business functions, which is central to Super A GI's mission.
+* **Projects:**  The candidate's project experience showcases their skills in various domains, including music recommendation systems, lecture transcription, and deep learning. However, emphasizing projects that align with Super A GI's focus on automating core business functions would be beneficial.
+* **Skills:** The resume clearly lists a wide range of technical skills, but it could be further enhanced by highlighting specific skills that are directly relevant to the job description, such as experience with cloud platforms, API development, or backend frameworks.
+
+## Action Items
+1. **Tailor Resume to Super A GI:**  Rework the resume to emphasize projects and experiences that align with Super A GI's focus on automating core business functions. 
+2. **Optimize for ATS:**  Incorporate keywords related to Super A GI's industry (AI, automation, core business functions) and the job role (software engineering) to increase ATS compatibility.
+3. **Quantify Results:**  Use data and metrics to quantify the impact of the candidate's projects and experiences. This will help demonstrate the candidate's value and contribution. 
+4. **Highlight Specific Skills:**  Focus on highlighting specific technical skills that are directly relevant to the job description, particularly those related to backend development and automation. 
+
+[2025-03-28 19:05:21] Error in analyze method: Failed to parse Gemini response: ResumeAnalysis() got unexpected keyword arguments: 'resume_file', 'job_description_file', 'analysis', 'relevance_score', 'ats_score', 'readability_score'
+[2025-03-28 19:05:21] Traceback:
+[2025-03-28 19:05:21] Traceback (most recent call last):
+  File "C:\Users\kumar\Desktop\resumeAnalyzer\analyzer\views.py", line 346, in analyze
+    analysis = ResumeAnalysis.objects.create(
+  File "C:\Users\kumar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\kumar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\site-packages\django\db\models\query.py", line 656, in create
+    obj = self.model(**kwargs)
+  File "C:\Users\kumar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\site-packages\django\db\models\base.py", line 567, in __init__
+    raise TypeError(
+TypeError: ResumeAnalysis() got unexpected keyword arguments: 'resume_file', 'job_description_file', 'analysis', 'relevance_score', 'ats_score', 'readability_score'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kumar\Desktop\resumeAnalyzer\analyzer\views.py", line 367, in analyze
+    raise ValueError(f"Failed to parse Gemini response: {str(e)}")
+ValueError: Failed to parse Gemini response: ResumeAnalysis() got unexpected keyword arguments: 'resume_file', 'job_description_file', 'analysis', 'relevance_score', 'ats_score', 'readability_score'
+
+[2025-03-28 19:14:10] Starting PDF text extraction for file: Pranav_Resume.pdf
+[2025-03-28 19:14:10] PDF has 1 pages
+[2025-03-28 19:14:10] Extracting text from page 1/1
+[2025-03-28 19:14:10] Starting PDF text extraction for file: Software Engineer Intern (1).pdf
+[2025-03-28 19:14:10] PDF has 2 pages
+[2025-03-28 19:14:10] Extracting text from page 1/2
+[2025-03-28 19:14:10] Extracting text from page 2/2
+[2025-03-28 19:14:10] Starting Gemini API call...
+[2025-03-28 19:14:10] Sending request to Gemini API...
+[2025-03-28 19:14:16] Successfully received response from Gemini API
+[2025-03-28 19:14:16] Full Gemini response: {
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Relevance Score: 6/10\nATS Compatibility: 7/10\nReadability & Clarity: 8/10\n\n## Overall Assessment\nPranav's resume demonstrates a strong foundation in programming languages, developer tools, and libraries relevant to software development, particularly with a focus on AI and ML. However, the resume needs adjustments to better align with the specific requirements outlined in the job description.\n\n## Strengths\n* **Technical Skills:** Pranav possesses a broad range of technical skills relevant to the software engineering field, including programming languages (Python, Java, C/C++, SQL, HTML/CSS), developer tools (Git, Google Colab, Linux, WSL, VS Code, MySQL), and libraries (NumPy, Pandas, Matplotlib, PyTorch, OpenCV, Librosa, Scikit-learn).\n* **Project Experience:** The resume showcases relevant project experience in areas like music recommendation systems, lecture note generation, and deep learning, demonstrating practical application of technical skills. \n* **Internship Experience:** Pranav's internship experience at Intel Corporation and Impactsure Technologies highlights his ability to work in collaborative environments and contribute to practical projects involving AI and ML.\n\n## Areas for Improvement\n* **Relevance to Job Description:** While Pranav's skills and experience are relevant to software engineering, the resume should explicitly highlight how they align with the specific responsibilities outlined in the job description. For instance, quantifying contributions in previous projects and emphasizing teamwork and problem-solving skills could be beneficial.\n* **Job Description Alignment:**  Pranav's resume should clearly demonstrate his understanding of the job requirements and how his experience fits the role of a Software Engineering Intern at SuperAGI. This can be achieved by using language from the job description to describe his skills and experience. \n* **ATS Optimization:** The resume's format and content should be optimized for Applicant Tracking Systems (ATS) to increase visibility. This involves using keywords from the job description, structuring the resume in a clear and concise manner, and using standard formatting.\n* **Specific Achievements:** Quantifying achievements in projects and internships with concrete metrics (e.g., \"increased model accuracy by 10%\") can make the resume more impactful.\n\n## Detailed Analysis\nThe resume highlights Pranav's technical skills and project experience, but it could be improved by:\n\n* **Tailoring to the Job Description:**  Focus on aligning skills and experience with the responsibilities outlined in the job description, such as software development, collaboration, problem-solving, and communication.\n* **Quantifying Achievements:**  Provide concrete examples of accomplishments in projects and internships with quantifiable metrics to showcase impact.\n* **Clarity and Conciseness:**  The resume could be made more readable by using bullet points and concise language to clearly communicate information.\n* **ATS Optimization:**  Incorporate keywords from the job description and structure the resume in a way that is easily parsed by ATS.\n\n## Action Items\n1. **Revise the Resume:**  Tailor the resume to align with the specific requirements of the Software Engineering Intern position at SuperAGI, focusing on key responsibilities and relevant skills.\n2. **Quantify Achievements:**  Provide concrete examples of accomplishments in projects and internships with quantifiable metrics.\n3. **Optimize for ATS:**  Use keywords from the job description, structure the resume for ATS parsing, and ensure standard formatting.\n4. **Review and Edit:**  Thoroughly review and edit the resume for clarity, conciseness, and accuracy.\n5. **Seek Feedback:**  Obtain feedback from career advisors or experienced professionals to improve the resume's effectiveness. \n"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "safetyRatings": [
+        {
+          "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HATE_SPEECH",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HARASSMENT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+          "probability": "NEGLIGIBLE"
+        }
+      ]
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1756,
+    "candidatesTokenCount": 747,
+    "totalTokenCount": 2503,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1756
+      }
+    ]
+  },
+  "modelVersion": "gemini-1.5-flash-001"
+}
+[2025-03-28 19:18:31] Starting PDF text extraction for file: Pranav_Resume.pdf
+[2025-03-28 19:18:31] PDF has 1 pages
+[2025-03-28 19:18:31] Extracting text from page 1/1
+[2025-03-28 19:18:31] Starting PDF text extraction for file: Software Engineer Intern (1).pdf
+[2025-03-28 19:18:31] PDF has 2 pages
+[2025-03-28 19:18:31] Extracting text from page 1/2
+[2025-03-28 19:18:31] Extracting text from page 2/2
+[2025-03-28 19:18:31] Starting Gemini API call...
+[2025-03-28 19:18:31] Sending request to Gemini API...
+[2025-03-28 19:18:36] Successfully received response from Gemini API
+[2025-03-28 19:18:36] Full Gemini response: {
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Relevance Score: 7/10\nATS Compatibility: 6/10\nReadability & Clarity: 8/10\n\n## Overall Assessment\nPranav has a strong foundation in relevant technical skills and demonstrated experience with AI/ML projects, but the resume lacks focus on software development and could be more tailored to the specific requirements of the software engineering internship.\n\n## Strengths\n* **Relevant Technical Skills:** The resume highlights essential programming languages (Python, Java, C/C++) and developer tools (Git, Google Colab, Linux) that align with software engineering roles.\n* **Project Experience:** Pranav's projects showcase practical application of AI/ML concepts and  demonstrate skills in deep learning, natural language processing, and computer vision.\n* **Internship Experience:** The internships at Intel and Impactsure Technologies demonstrate practical experience in software development and AI/ML applications.\n* **Clear and Concise Writing:** The resume is well-organized and easy to read, with clear descriptions of projects and experiences.\n\n## Areas for Improvement\n* **Software Development Focus:** Emphasize software development skills and experience over AI/ML projects, aligning more closely with the software engineering internship requirements. \n* **Tailoring to Job Description:**  Highlight specific skills and experiences from projects and internships that directly relate to the responsibilities outlined in the job description (e.g., writing clean code, collaborating with cross-functional teams, problem-solving).\n* **Quantifiable Achievements:**  Quantify achievements whenever possible (e.g., \"Increased model accuracy by 10% through feature engineering\").\n* **ATS Optimization:**  Use keywords from the job description throughout the resume to improve its visibility to applicant tracking systems (ATS).\n\n## Detailed Analysis\nThe resume demonstrates Pranav's technical abilities in AI/ML and software development. However, the emphasis leans more towards AI/ML than software engineering, which might not resonate as strongly with the software engineering internship role.  Highlighting specific software development skills and achievements related to the job description's responsibilities (e.g., clean code, collaborative development, problem-solving) would strengthen the resume's relevance. \n\n## Action Items\n1. **Tailor the resume:** Focus on highlighting software development skills and experiences over AI/ML projects. \n2. **Include keywords:** Integrate relevant keywords from the job description into the resume content. \n3. **Quantify achievements:** Provide quantifiable metrics for accomplishments in projects and internships.\n4. **Revise project descriptions:** Emphasize software development aspects of projects, showcasing experience in coding, testing, debugging, and collaboration. \n"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "safetyRatings": [
+        {
+          "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HATE_SPEECH",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HARASSMENT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+          "probability": "NEGLIGIBLE"
+        }
+      ]
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1756,
+    "candidatesTokenCount": 541,
+    "totalTokenCount": 2297,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1756
+      }
+    ]
+  },
+  "modelVersion": "gemini-1.5-flash-001"
+}
+[2025-03-28 19:18:44] Starting PDF text extraction for file: Pranav_Resume.pdf
+[2025-03-28 19:18:44] PDF has 1 pages
+[2025-03-28 19:18:44] Extracting text from page 1/1
+[2025-03-28 19:18:44] Starting PDF text extraction for file: Software Engineer Intern (1).pdf
+[2025-03-28 19:18:44] PDF has 2 pages
+[2025-03-28 19:18:44] Extracting text from page 1/2
+[2025-03-28 19:18:44] Extracting text from page 2/2
+[2025-03-28 19:18:44] Starting Gemini API call...
+[2025-03-28 19:18:44] Sending request to Gemini API...
+[2025-03-28 19:18:49] Successfully received response from Gemini API
+[2025-03-28 19:18:49] Full Gemini response: {
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Relevance Score: 7/10\nATS Compatibility: 6/10\nReadability & Clarity: 8/10\n\n## Overall Assessment\nPranav has a strong academic background in computer science and relevant technical skills. He demonstrates a good understanding of AI and machine learning concepts through his projects and certifications. However, the resume needs improvement in terms of ATS compatibility and highlighting specific software engineering skills. \n\n## Strengths\n* **Strong technical skills:** Pranav possesses a wide range of technical skills, including Python, Java, C/C++, SQL, HTML/CSS, and various libraries like NumPy, Pandas, Matplotlib, PyTorch, OpenCV, Librosa, and Scikit-learn.\n* **Project experience:** He showcases multiple projects related to AI and machine learning, highlighting his practical experience with data analysis, model building, and development.\n* **Relevant certifications:** Pranav's AI and ML certification from E & ICT Academy, IIT Kanpur demonstrates his formal training in relevant technologies.\n* **Clear and concise writing:** The resume is well-written and easy to understand.\n\n## Areas for Improvement\n* **ATS compatibility:** The resume needs to be formatted for Applicant Tracking Systems (ATS) to ensure it's easily scanned and parsed by software. This includes using keywords from the job description and standardizing the format.\n* **Software Engineering focus:**  The resume needs to emphasize specific software engineering skills and experiences more prominently. It should showcase his proficiency in software development practices, version control systems, and collaborative development methodologies.\n* **Quantitative results:** Quantifying project outcomes and accomplishments with specific metrics will enhance the resume's impact. \n* **Job description alignment:** The resume should specifically address the responsibilities listed in the job description, highlighting skills and experience relevant to the role. \n* **Tailored content:** Pranav should customize his resume for each specific job application, focusing on the most relevant skills and experiences for that role.\n\n## Detailed Analysis\nPranav's resume demonstrates a strong foundation in computer science and AI. He has experience with various programming languages, libraries, and tools, and his projects showcase his understanding of machine learning concepts. However, the resume lacks a strong emphasis on software engineering skills and doesn't prioritize ATS compatibility.\n\n## Action Items\n1. **Optimize for ATS:**  Reformat the resume using keywords from the job description and ensuring a standardized format for ATS compatibility.  \n2. **Focus on software engineering:** Highlight relevant software engineering skills, including experience with Agile methodologies, code review practices, and collaborative development.  \n3. **Quantify achievements:** Include specific metrics and results for each project to demonstrate the impact of his work.\n4. **Tailor content:**  Customize the resume to match the specific requirements of the Software Engineer Intern position at Super A GI.  \n5. **Refine project descriptions:**  Clearly articulate the purpose, methodology, and outcomes of each project, focusing on the software engineering aspects. \n6. **Highlight relevant skills:** Use action verbs to showcase his software engineering skills, such as \"designed,\" \"developed,\" \"implemented,\" \"tested,\" and \"deployed.\" \n"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "safetyRatings": [
+        {
+          "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HATE_SPEECH",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HARASSMENT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+          "probability": "NEGLIGIBLE"
+        }
+      ]
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1756,
+    "candidatesTokenCount": 649,
+    "totalTokenCount": 2405,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1756
+      }
+    ]
+  },
+  "modelVersion": "gemini-1.5-flash-001"
+}
+[2025-03-28 19:22:38] Starting PDF text extraction for file: Pranav_Resume.pdf
+[2025-03-28 19:22:38] PDF has 1 pages
+[2025-03-28 19:22:38] Extracting text from page 1/1
+[2025-03-28 19:22:38] Starting PDF text extraction for file: Software Engineer Intern (1).pdf
+[2025-03-28 19:22:38] PDF has 2 pages
+[2025-03-28 19:22:38] Extracting text from page 1/2
+[2025-03-28 19:22:38] Extracting text from page 2/2
+[2025-03-28 19:22:38] Starting Gemini API call...
+[2025-03-28 19:22:38] Sending request to Gemini API...
+[2025-03-28 19:22:43] Successfully received response from Gemini API
+[2025-03-28 19:22:43] Full Gemini response: {
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Relevance Score: 7/10\nATS Compatibility: 6/10\nReadability & Clarity: 8/10\n\n## Overall Assessment\nPranav's resume demonstrates strong technical skills, particularly in machine learning and deep learning. He has relevant experience through internships and personal projects, showcasing his ability to work on real-world applications. However, the resume lacks a clear focus on software development, which is a key requirement for the Software Engineer Intern role. \n\n## Strengths\n* **Technical Proficiency:** Pranav possesses a wide range of technical skills, including Python, Java, C/C++, SQL, and various machine learning libraries, which are relevant to the role.\n* **Project Experience:** The resume highlights several impressive projects, including a music recommendation system, a lecture scribe tool, and deep learning implementations, demonstrating his ability to apply theoretical knowledge to practical problems.\n* **Internship Experience:** Pranav has relevant internship experience at Intel Corporation and Impactsure Technologies, where he worked on projects involving AI, data analysis, and model development.\n\n## Areas for Improvement\n* **Focus on Software Development:** The resume should emphasize Pranav's software development skills and experience, aligning it more closely with the job description's focus on backend and frontend systems.\n* **Quantifiable Achievements:**  Pranav should quantify his achievements in projects and internships with specific metrics whenever possible. For example, instead of stating \"improved model performance,\" he could say \"improved model accuracy by 10%.\"\n* **Keywords:**  Pranav's resume should incorporate more keywords related to software development, such as \"backend,\" \"frontend,\" \"API,\" \"database,\" \"cloud,\" \"software design,\" \"code reviews,\" \"testing,\" and \"debugging.\"\n* **ATS Optimization:**  The resume needs to be formatted in a way that is easily understood by Applicant Tracking Systems (ATS). This might involve using specific keywords, formatting, and bullet points to make the resume ATS-friendly.\n\n## Detailed Analysis\nThe resume demonstrates a strong foundation in machine learning and deep learning. The projects and internships showcase Pranav's ability to apply these skills to real-world problems. However, the resume lacks a clear focus on software development, which is a core requirement of the Software Engineer Intern role. The lack of emphasis on software engineering concepts, frameworks, and experience might make it difficult for the ATS to understand Pranav's suitability for this specific role. \n\n## Action Items\n* Reformat the resume to emphasize software development skills and experience.\n* Include keywords related to backend and frontend development.\n* Quantify achievements in projects and internships with specific metrics.\n* Optimize the resume for ATS readability. \n"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "safetyRatings": [
+        {
+          "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HATE_SPEECH",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HARASSMENT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+          "probability": "NEGLIGIBLE"
+        }
+      ]
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1756,
+    "candidatesTokenCount": 553,
+    "totalTokenCount": 2309,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1756
+      }
+    ]
+  },
+  "modelVersion": "gemini-1.5-flash-001"
+}
+[2025-03-28 19:25:58] Starting PDF text extraction for file: Pranav_Resume.pdf
+[2025-03-28 19:25:58] PDF has 1 pages
+[2025-03-28 19:25:58] Extracting text from page 1/1
+[2025-03-28 19:25:58] Starting PDF text extraction for file: Software Engineer Intern (1).pdf
+[2025-03-28 19:25:58] PDF has 2 pages
+[2025-03-28 19:25:58] Extracting text from page 1/2
+[2025-03-28 19:25:58] Extracting text from page 2/2
+[2025-03-28 19:25:58] Starting Gemini API call...
+[2025-03-28 19:25:58] Sending request to Gemini API...
+[2025-03-28 19:26:03] Successfully received response from Gemini API
+[2025-03-28 19:26:03] Full Gemini response: {
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Relevance Score: 7/10\nATS Compatibility: 6/10\nReadability & Clarity: 8/10\n\n## Overall Assessment\nPranav's resume demonstrates a strong foundation in computer science and relevant technical skills for a Software Engineer Intern role. However, some aspects need to be adjusted to better align with the job description's requirements and improve ATS compatibility.\n\n## Strengths\n* **Technical Skills:** Pranav possesses a wide range of technical skills, including programming languages (Python, Java, C/C++, SQL), developer tools (Git, Google Colab, Linux), and libraries (NumPy, Pandas, Matplotlib, PyTorch, OpenCV, Librosa, Scikit-learn). These skills align well with the software development focus of the internship.\n* **Project Experience:** Pranav's resume highlights multiple projects, showcasing his hands-on experience in various areas of software development, such as machine learning, natural language processing, and image processing. This demonstrates his practical application of technical skills.\n* **Internship Experience:** Pranav's past internships at Intel and Impactsure Technologies provide relevant experience in areas like generative AI, data preprocessing, and ML model development, aligning with the job description's focus on AI solutions.\n\n## Areas for Improvement\n* **Job Description Alignment:**  While Pranav's skills are generally relevant, he should emphasize his experience in areas directly mentioned in the job description, such as \"backend and frontend systems,\" \"cross-functional team collaboration,\" and \"problem-solving.\"  \n* **Quantifiable Achievements:** Pranav should quantify his project accomplishments with specific metrics and results. For example, instead of saying \"improved model performance,\" he should state \"improved model accuracy by X%.\" \n* **ATS Keywords:** Pranav should incorporate more keywords from the job description into his resume, including \"AI,\" \"machine learning,\" \"backend,\" \"frontend,\" \"software development,\" \"cross-functional teams,\" \"problem-solving,\" and \"quality assurance.\" \n* **Resume Formatting:**  The resume's formatting could be improved for better ATS compatibility. Using a consistent and structured format with clear section headings and bullet points can enhance readability and ensure the ATS can easily extract relevant information. \n\n## Detailed Analysis\nPranav's resume effectively showcases his technical skills and project experience. However, he can strengthen his candidacy by tailoring his resume more closely to the job description's requirements.  He should highlight specific examples of his experience that demonstrate his ability to work on backend and frontend systems, collaborate with cross-functional teams, and solve problems effectively.  Adding quantifiable achievements and using relevant keywords will improve his ATS compatibility. \n\n## Action Items\n1. **Reformat resume:**  Adopt a standard, ATS-friendly format with clear headings and bullet points. \n2. **Tailor content:**  Highlight experiences and skills that align with the job description's keywords and responsibilities.\n3. **Quantify achievements:**  Include specific metrics and results for each project and internship.\n4. **Incorporate keywords:**  Integrate relevant keywords from the job description into the resume content. \n"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "safetyRatings": [
+        {
+          "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HATE_SPEECH",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HARASSMENT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+          "probability": "NEGLIGIBLE"
+        }
+      ]
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1756,
+    "candidatesTokenCount": 648,
+    "totalTokenCount": 2404,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1756
+      }
+    ]
+  },
+  "modelVersion": "gemini-1.5-flash-001"
+}
+[2025-03-28 19:28:19] Starting PDF text extraction for file: Pranav_Resume.pdf
+[2025-03-28 19:28:20] PDF has 1 pages
+[2025-03-28 19:28:20] Extracting text from page 1/1
+[2025-03-28 19:28:20] Starting PDF text extraction for file: Software Engineer Intern (1).pdf
+[2025-03-28 19:28:20] PDF has 2 pages
+[2025-03-28 19:28:20] Extracting text from page 1/2
+[2025-03-28 19:28:20] Extracting text from page 2/2
+[2025-03-28 19:28:20] Starting Gemini API call...
+[2025-03-28 19:28:20] Sending request to Gemini API...
+[2025-03-28 19:28:26] Successfully received response from Gemini API
+[2025-03-28 19:28:26] Full Gemini response: {
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "## Resume Analysis for Software Engineer Intern at Super A GI\n\n**1. Detailed Analysis of Match with Job Requirements:**\n\n**Strengths:**\n\n* **Relevant Technical Skills:** Pranav possesses a strong foundation in Python, which is a core language for AI/ML development. He demonstrates expertise in libraries like PyTorch, NumPy, Pandas, and Scikit-learn, which are crucial for building and deploying machine learning models. \n* **Project Experience:** His projects highlight his practical application of skills like deep learning, object detection, music recommendation systems, and lecture transcription. This demonstrates his ability to work on complex projects and solve real-world problems.\n* **Internship Experience:** Pranav's experience at Intel and Impactsure Technologies shows his ability to work in team settings and contribute to research and development. His experience with Generative AI and data pre-processing aligns with Super A GI's focus on AI-driven solutions.\n* **Communication & Documentation:**  Pranav's project descriptions demonstrate good communication skills, concisely outlining the problem, approach, and outcomes. He also mentions experience with technical documentation, which is a valuable skill for any software engineering role.\n\n**Areas for Improvement:**\n\n* **Focus on Backend Development:** While the resume highlights AI/ML skills, it doesn't explicitly showcase experience with backend development, which is a core requirement for the internship. He should highlight any relevant projects or skills related to web development, APIs, databases, or server-side programming. \n* **Soft Skills:** The resume lacks specific examples showcasing soft skills like teamwork, problem-solving, communication, and adaptability, which are essential for collaborative environments.\n* **Quantifiable Results:** While the resume mentions accuracy scores and model improvements, it could benefit from more specific and quantifiable results for each project. For example, instead of \"Improved model performance by scrutinizing accuracy scores,\" he could mention \"Increased model accuracy by 10% through data analysis and feature engineering.\" \n\n**2. Relevance Score: 7/10**\n\nPranav's resume demonstrates strong technical skills and relevant project experience, but it could be further strengthened by highlighting backend development skills and providing more concrete examples of soft skills and quantifiable results.\n\n**3. ATS Compatibility Score: 7/10**\n\nThe resume uses keywords relevant to the job description (AI, machine learning, Python, software development). However, it could benefit from using keywords specific to backend development and the skills mentioned in the job description, like \"REST APIs\", \"Microservices\", \"Cloud Platforms\", \"Database Management\", etc.\n\n**4. Readability & Clarity Score: 8/10**\n\nThe resume is well-structured and easy to read. The content is organized logically, and the use of bullet points and subheadings makes it visually appealing. However, the resume could be made even more concise and impactful by removing unnecessary details and focusing on the most relevant information.\n\n**5. Specific Recommendations for Improvement:**\n\n* **Tailor the resume to the specific job description:** Highlight the most relevant skills and experiences that directly align with the required skills for this internship, including backend development.\n* **Add a summary section:** This could be a concise paragraph highlighting Pranav's key skills, experiences, and career goals. This section should be tailored to the specific job description and highlight the most relevant skills and experiences.\n* **Quantify results:** Add specific numbers and metrics to the project descriptions to showcase the impact of Pranav's work.\n* **Showcase soft skills:** Include concrete examples from past experiences that demonstrate Pranav's teamwork, problem-solving, communication, and adaptability skills.\n* **Use relevant keywords:** Analyze the job description and identify specific keywords related to backend development and other relevant technologies. Incorporate these keywords throughout the resume to improve its ATS compatibility.\n* **Proofread carefully:** Ensure there are no grammatical or spelling errors.\n\nBy making these changes, Pranav can create a more compelling and effective resume that highlights his skills and experience in a way that resonates with the hiring manager and improves his chances of getting an interview. \n"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "safetyRatings": [
+        {
+          "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HATE_SPEECH",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HARASSMENT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+          "probability": "NEGLIGIBLE"
+        }
+      ]
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1578,
+    "candidatesTokenCount": 845,
+    "totalTokenCount": 2423,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1578
+      }
+    ]
+  },
+  "modelVersion": "gemini-1.5-flash-001"
+}
+[2025-03-28 19:28:50] Starting PDF text extraction for file: Pranav_Resume.pdf
+[2025-03-28 19:28:50] PDF has 1 pages
+[2025-03-28 19:28:50] Extracting text from page 1/1
+[2025-03-28 19:28:50] Starting PDF text extraction for file: Software Engineer Intern (1).pdf
+[2025-03-28 19:28:50] PDF has 2 pages
+[2025-03-28 19:28:50] Extracting text from page 1/2
+[2025-03-28 19:28:50] Extracting text from page 2/2
+[2025-03-28 19:28:50] Starting Gemini API call...
+[2025-03-28 19:28:50] Sending request to Gemini API...
+[2025-03-28 19:28:56] Successfully received response from Gemini API
+[2025-03-28 19:28:56] Full Gemini response: {
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Relevance Score: 7/10\nATS Compatibility: 6/10\nReadability & Clarity: 8/10\n\n## Overall Assessment\nPranav's resume demonstrates strong technical skills and relevant experience for a Software Engineer Intern role. However, it could benefit from some restructuring and tailoring to better highlight the most relevant skills and experiences for the specific requirements of this particular internship.\n\n## Strengths\n* **Strong Technical Skills:** Pranav possesses a comprehensive range of technical skills, including proficiency in Python, Java, C/C++, SQL, and various libraries such as NumPy, Pandas, Matplotlib, PyTorch, OpenCV, Librosa, and Scikit-learn. This demonstrates a solid foundation in programming and data science.\n* **Relevant Projects:** Pranav has actively participated in multiple projects demonstrating practical application of his skills. The Music Recommendation System, Lecture Scribe, and Deep Learning with PyTorch projects showcase his ability to tackle complex problems and implement solutions using various technologies. \n* **Internship Experience:** Pranav's internship experience at Intel and Impactsure Technologies provides valuable insights into software development and collaboration in a professional setting. His contributions in developing open-source research assistants, implementing classification pipelines, and improving model performance demonstrate his hands-on experience.\n\n## Areas for Improvement\n* **Tailoring to Job Description:** While Pranav's resume highlights technical skills and projects, it needs further tailoring to align with the specific responsibilities mentioned in the job description.  For example, explicitly stating his experience in software development, collaboration, problem-solving, and quality assurance would strengthen his candidacy. \n* **ATS Optimization:**  Pranav should ensure his resume is ATS-compliant. This involves using keywords from the job description throughout the resume, ensuring consistency in formatting, and avoiding overly creative or unique designs.\n* **Quantifiable Achievements:**  While Pranav mentions improvements in model performance and accuracy, quantifying these achievements with specific metrics (e.g., \"increased model accuracy by 15%\") would make his impact more tangible.\n* **Experience Structure:**  The current bullet point format for experience could be structured more clearly to showcase Pranav's specific roles and responsibilities.\n\n## Detailed Analysis\n* **Education:** The education section provides a good overview of Pranav's academic background, including his CGPA.\n* **Experience:** The experience section showcases Pranav's internships, which are relevant to the job description. However, the bullet points could be strengthened by highlighting specific skills used and quantifiable achievements.\n* **Projects:**  The projects section demonstrates Pranav's ability to apply his skills to real-world problems. However, the descriptions could be more concise and focused on highlighting the skills and technologies used.\n* **Technical Skills:** The technical skills section provides a detailed list of Pranav's proficiency in programming languages, developer tools, and libraries.\n\n## Action Items\n1. **Tailor the resume:** Review the job description carefully and highlight relevant skills and experiences in the resume, using keywords from the job description.\n2. **Optimize for ATS:**  Research and implement best practices for ATS-compliant resumes, ensuring the resume is keyword-rich and formatted correctly.\n3. **Quantify achievements:** Add specific metrics to quantify the impact of Pranav's work in projects and internships.\n4. **Improve experience section structure:**  Use a more structured approach to present experience details, clearly outlining roles, responsibilities, and accomplishments.\n5. **Refine project descriptions:**  Concisely describe each project, focusing on the skills and technologies used.\n"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "safetyRatings": [
+        {
+          "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HATE_SPEECH",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_HARASSMENT",
+          "probability": "NEGLIGIBLE"
+        },
+        {
+          "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+          "probability": "NEGLIGIBLE"
+        }
+      ]
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1756,
+    "candidatesTokenCount": 740,
+    "totalTokenCount": 2496,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1756
+      }
+    ]
+  },
+  "modelVersion": "gemini-1.5-flash-001"
+}
