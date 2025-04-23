@@ -42,7 +42,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-6. Visit http://localhost:8000 in your browser
+6. Visit http://localhost:8000 in your browser.
 
 ## Usage
 
